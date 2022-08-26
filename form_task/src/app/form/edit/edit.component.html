@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="row">
+   
+    
+        <span class="S1"  >Welcome ! kindly fill this form </span>
+
+    </div>
+    
+  <div class="row">
+    <div class="col col-md-2 col-lg-2"></div>
+    <div class="col col-md-8 col-lg-8">
+    <div class="row ">
+        <form  >
+            <div class="row">
+    <div class=" col">
+
+        <mat-form-field appearance="outline"  >
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="userName">
+          </mat-form-field>
+    
+    </div>
+    
+          <div class=" col">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com"  formControlName="email" required>
+            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+          </mat-form-field>
+          </div>
+          </div>
+    
+    <div class="row">
+        <div class=" col">
+    
+            <mat-form-field appearance="outline">
+                <mat-label>Phone number</mat-label>
+            <input matInput formControlName="phoneNumber">
+                
+                <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+        
+        </div>
+        
+              <div class=" col">
+    
+            <mat-form-field appearance="outline">
+                <mat-label>Address</mat-label>
+                <input matInput  formControlName="address" required>
+                <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+              </mat-form-field>
+              </div>
+        </div>
+
+        <div class="row">
+            <div class=" col-md-6 col-lg-6">
+        
+
+                <label>Gender: </label>
+                <mat-radio-group formControlName="gender">
+                  <mat-radio-button value="male">Male</mat-radio-button>
+                  <mat-radio-button value="Female">Female</mat-radio-button>
+                </mat-radio-group>
+            
+            </div>
+            
+                  <div class=" col-md-6 col-lg-6">
+        
+
+      
+                  </div>
+            </div>
+        
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+            <button mat-stroked-button color="accent" type="submit">Save</button>
+            </div>
+            <div class="col"></div>
+        </div>
+</form>
+</div>
+</div>
+
+          <div class=" col col-md-3 col-lg-3"></div>
+
+  </div>
+
+
+</div>
+<div class="container">
+<app-data-table></app-data-table>
+
+</div>
+
