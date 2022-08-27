@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +23,17 @@ export class UserService {
     
   }
   getUser(id:number){
-    return this.http.get(`http://localhost:3000/user/${id}`)
+    return this.http.get<User>(`http://localhost:3000/user/${id}`)
   }
+  updateUser(uesrdata:object,id:number){
+   return this.http.put(`http://localhost:3000/user/${id}`,uesrdata)
+  
+  }
+ public userId=new BehaviorSubject('')
+
+  getId(id:string){
+    this.userId.next(id)
+  }
+ recivedId=this.userId.asObservable()
 }
 

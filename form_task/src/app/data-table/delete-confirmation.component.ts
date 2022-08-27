@@ -9,18 +9,21 @@ import { UserService } from '../shared/user.service';
 export class DeleteConfirmationComponent implements OnInit {
 
   constructor(private userservice:UserService) { }
-
-  ids:object=
-  {}
+userId:number=0
   ngOnInit(): void {
   }
-  deleteUser(id:number){
-    this.userservice.delete(id).subscribe((res)=>{
-      
-      console.log(res)
-      
-     
+  deleteUser(){
+    this.userservice.recivedId.subscribe((res)=>{
+      this.userId=Number(res)
+      this.userservice.delete(this.userId).subscribe(()=>{
+        console.log("deleted")
+        
+       
+       
+      })
     })
+    
+  
 
 
   }

@@ -17,6 +17,7 @@
         <mat-form-field appearance="outline"  >
             <mat-label>Name</mat-label>
             <input matInput formControlName="userName">
+            <mat-error *ngIf="userdata.controls.userName.invalid">Invalid</mat-error> 
           </mat-form-field>
     
     </div>
@@ -26,7 +27,7 @@
         <mat-form-field appearance="outline">
             <mat-label>Enter your email</mat-label>
             <input matInput placeholder="pat@example.com"  formControlName="email" required>
-            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+             <mat-error *ngIf="userdata.controls.email.invalid">Invalid</mat-error> 
           </mat-form-field>
           </div>
           </div>
@@ -39,6 +40,7 @@
             <input matInput formControlName="phoneNumber">
                 
                 <mat-icon matSuffix>phone</mat-icon>
+                <mat-error *ngIf="userdata.controls.phoneNumber.invalid">Invalid</mat-error> 
             </mat-form-field>
         
         </div>
@@ -48,7 +50,9 @@
             <mat-form-field appearance="outline">
                 <mat-label>Address</mat-label>
                 <input matInput  formControlName="address" required>
-                <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                <mat-error *ngIf="userdata.controls.address.invalid"> Invalid </mat-error> 
+                
+
               </mat-form-field>
               </div>
         </div>
@@ -61,7 +65,9 @@
                 <mat-radio-group formControlName="gender">
                   <mat-radio-button value="male">Male</mat-radio-button>
                   <mat-radio-button value="Female">Female</mat-radio-button>
+                  
                 </mat-radio-group>
+                
             
             </div>
             
@@ -75,7 +81,7 @@
         <div class="row">
             <div class="col"></div>
             <div class="col">
-            <button mat-stroked-button color="accent" type="submit">Save</button>
+            <button mat-stroked-button color="accent" type="submit" [disabled]="userdata.invalid">Save</button>
             </div>
             <div class="col"></div>
         </div>

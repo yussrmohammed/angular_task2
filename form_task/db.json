@@ -1,12 +1,36 @@
 {
   "user": [
     {
+      "userName": "ahmed",
+      "email": "ahmed@gmail.com",
+      "phoneNumber": "01111111111",
+      "address": "alex",
+      "gender": "male",
+      "id": 7
+    },
+    {
+      "userName": "ahmed",
+      "email": "ahmedmohamed@gmail.com",
+      "phoneNumber": "01234567890",
+      "address": "cairo",
+      "gender": "male",
+      "id": 9
+    },
+    {
+      "userName": "mohamed",
+      "email": "mohamed@gmail.com",
+      "phoneNumber": "01234567890",
+      "address": "giza",
+      "gender": "male",
+      "id": 10
+    },
+    {
       "userName": "yossr",
       "email": "yossr@gmail.com",
       "phoneNumber": "01121831314",
-      "address": "giza, bolaq eldkror",
+      "address": "giza",
       "gender": "Female",
-      "id": 1
+      "id": 11
     }
   ]
 }

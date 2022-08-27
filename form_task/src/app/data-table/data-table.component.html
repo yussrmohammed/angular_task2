@@ -33,7 +33,7 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let element">      
-             <button mat-icon-button aria-label="Example icon button with a edit icon"> 
+             <button mat-icon-button aria-label="Example icon button with a edit icon"   [routerLink]="['/update',element.id]"> 
             <mat-icon>edit</mat-icon>
           </button> 
             <button mat-icon-button aria-label="Example icon button with a delete icon" (click)="deleteUser(element.id)">
