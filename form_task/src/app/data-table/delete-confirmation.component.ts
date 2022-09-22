@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { UserService } from '../shared/user.service';
-
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'app-delete-confirmation',
   templateUrl: './delete-confirmation.component.html',
@@ -8,19 +8,23 @@ import { UserService } from '../shared/user.service';
 })
 export class DeleteConfirmationComponent implements OnInit {
 
-  constructor(private userservice:UserService) { }
-userId:number=0
+  constructor(private userservice:UserService , @Inject(MAT_DIALOG_DATA) public data:{userId:string}) { }
+userId:string=''
   ngOnInit(): void {
   }
   deleteUser(){
-    this.userservice.recivedId.subscribe((res)=>{
-      this.userId=Number(res)
-      this.userservice.delete(this.userId).subscribe(()=>{
-        console.log("deleted")
+    /*this.userservice.recivedId.subscribe((res)=>{
+      this.userId=String(res)*/
+      
+      this.userservice.delete(this.data.userId).subscribe((res)=>{
+
+        console.log(res,"deleted")
         
        
        
-      })
+      
+      
+      
     })
     
   

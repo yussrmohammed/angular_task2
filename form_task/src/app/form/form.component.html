@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-   
+        <button mat-stroked-button color="accent" type="submit" (click)="logout()">Logout</button>
     
         <span class="S1"  >Welcome ! kindly fill this form </span>
 
@@ -16,8 +16,8 @@
 
         <mat-form-field appearance="outline"  >
             <mat-label>Name</mat-label>
-            <input matInput formControlName="userName">
-            <mat-error *ngIf="userdata.controls.userName.invalid">Invalid</mat-error> 
+            <input matInput formControlName="employeename">
+            <mat-error *ngIf="userdata.controls.employeename.invalid">Invalid</mat-error> 
           </mat-form-field>
     
     </div>
@@ -37,10 +37,10 @@
     
             <mat-form-field appearance="outline">
                 <mat-label>Phone number</mat-label>
-            <input matInput formControlName="phoneNumber">
+            <input matInput formControlName="phonenumber">
                 
                 <mat-icon matSuffix>phone</mat-icon>
-                <mat-error *ngIf="userdata.controls.phoneNumber.invalid">Invalid</mat-error> 
+                <mat-error *ngIf="userdata.controls.phonenumber.invalid">Invalid</mat-error> 
             </mat-form-field>
         
         </div>
@@ -81,7 +81,7 @@
         <div class="row">
             <div class="col"></div>
             <div class="col">
-            <button mat-stroked-button color="accent" type="submit" [disabled]="userdata.invalid">Save</button>
+            <button mat-stroked-button color="accent" type="submit"  [disabled]="userdata.invalid">Save</button>
             </div>
             <div class="col"></div>
         </div>

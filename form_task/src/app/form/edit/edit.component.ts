@@ -24,15 +24,16 @@ console.log(this.currentUser)
       
   ngOnInit(): void {
     let id= this.route.snapshot.paramMap.get('id')
- this.userservice.getUser(Number(id)).subscribe((res:User)=>{
+ this.userservice.getUser(String(id)).subscribe((res:User)=>{
   this.currentUser=res
   console.log(this.currentUser)
-  this.userData.setValue({userName:this.currentUser.userName,
+  this.userData.setValue({
+    employeename:this.currentUser.employeename,
     email:this.currentUser.email,
-  phoneNumber:this.currentUser.phoneNumber,
+  phonenumber:this.currentUser.phonenumber,
   address:this.currentUser.address,
   gender:this.currentUser.gender,
-  id:this.currentUser.id
+  id:this.currentUser._id
   })
  })
      
@@ -45,17 +46,17 @@ console.log(this.currentUser)
    
   }
   userData= new FormGroup({
-    userName:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z].*')]),
+    employeename:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z].*')]),
     email: new FormControl('',[Validators.required,Validators.email]) ,
-    phoneNumber: new FormControl(0,[Validators.maxLength(11),Validators.minLength(11),Validators.pattern("^[0-9]*$"),Validators.required]),
+    phonenumber: new FormControl(0,[Validators.maxLength(11),Validators.minLength(11),Validators.pattern("^[0-9]*$"),Validators.required]),
     address: new FormControl('',[Validators.pattern('[a-zA-Z].*'), Validators.required]),
     gender: new FormControl('',Validators.required),
   
-      id:new FormControl(0)
+      id:new FormControl('')
     
     
     })
-    update(id:number){
+    update(id:string){
       this.userservice.updateUser(this.userData.value,id).subscribe((res)=>{
         console.log(res)
         this.router.navigate(['/form'])

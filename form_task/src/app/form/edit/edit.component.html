@@ -10,14 +10,14 @@
     <div class="col col-md-2 col-lg-2"></div>
     <div class="col col-md-8 col-lg-8">
     <div class="row ">
-        <form [formGroup]="userData"  (ngSubmit)="update(this.currentUser!.id)">
+        <form [formGroup]="userData"  (ngSubmit)="update(this.currentUser!._id)">
             <div class="row">
                 <div class=" col">
             
                     <mat-form-field appearance="outline"  >
                         <mat-label>Name</mat-label>
-                        <input matInput formControlName="userName">
-                        <mat-error *ngIf="userData.controls.userName.invalid">Invalid</mat-error> 
+                        <input matInput formControlName="employeename">
+                        <mat-error *ngIf="userData.controls.employeename.invalid">Invalid</mat-error> 
                       </mat-form-field>
                 
                 </div>
@@ -37,10 +37,10 @@
                 
                         <mat-form-field appearance="outline">
                             <mat-label>Phone number</mat-label>
-                        <input matInput formControlName="phoneNumber">
+                        <input matInput formControlName="phonenumber">
                             
                             <mat-icon matSuffix>phone</mat-icon>
-                            <mat-error *ngIf="userData.controls.phoneNumber.invalid">Invalid</mat-error> 
+                            <mat-error *ngIf="userData.controls.phonenumber.invalid">Invalid</mat-error> 
                         </mat-form-field>
                     
                     </div>

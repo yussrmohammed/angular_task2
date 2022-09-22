@@ -9,14 +9,6 @@
       "id": 7
     },
     {
-      "userName": "ahmed",
-      "email": "ahmedmohamed@gmail.com",
-      "phoneNumber": "01234567890",
-      "address": "cairo",
-      "gender": "male",
-      "id": 9
-    },
-    {
       "userName": "mohamed",
       "email": "mohamed@gmail.com",
       "phoneNumber": "01234567890",
@@ -27,8 +19,8 @@
     {
       "userName": "yossr",
       "email": "yossr@gmail.com",
-      "phoneNumber": "01121831314",
-      "address": "giza",
+      "phoneNumber": "01111111111",
+      "address": "giza, bolaq eldkror",
       "gender": "Female",
       "id": 11
     }

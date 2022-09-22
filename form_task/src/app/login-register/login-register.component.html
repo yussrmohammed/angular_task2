@@ -1,0 +1,90 @@
+<mat-tab-group>
+    <mat-tab label="login">
+        <div class="container">
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-7">
+          
+          <form [formGroup]="logindata" (ngSubmit)="logIn()">
+          
+              <h1 class="text-center">Log in</h1>
+              <div class="container">
+                  <div class="row">
+                  <mat-form-field appearance="outline">
+                    <mat-label >Enter your email</mat-label>
+                    <input matInput placeholder="pat@example.com"  required formControlName="email">
+                
+                  </mat-form-field>
+                  </div>
+                  <div class="row">
+                  <mat-form-field appearance="outline">
+                      <mat-label>Enter your password</mat-label>
+                      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                      </mat-form-field>
+                  </div>
+                  <div class="row">
+                      <button type="submit" class="btn btn-outline-warning">Log in</button>
+                  </div>
+              </div>
+              
+          </form>
+          </div>
+          </div>
+          </div> 
+        
+    
+    
+    </mat-tab>
+    <mat-tab label="register"> 
+        
+    
+
+<form  [formGroup]="registerdata" (ngSubmit)="signUp()">
+    <h1 class="text-center">Sign Up</h1>
+    <div class="container">
+        <div class="row">
+            
+                <mat-form-field appearance="outline" >
+                    <mat-label>Name</mat-label>
+                    <input matInput  formControlName="username">
+                  </mat-form-field>
+                
+              
+            </div>
+            <div class="row">
+              
+                <mat-form-field appearance="outline">
+                    <mat-label >Enter your email</mat-label>
+                    <input matInput placeholder="pat@example.com"  required formControlName="email">
+                
+                  </mat-form-field>
+                
+            </div>
+            <div class="row">
+                
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter your password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    </mat-form-field>
+                
+
+                    </div>
+
+            
+    
+                    <div class="row">
+                    <button type="submit" class="btn btn-outline-warning">Sign up</button>
+                    </div>
+            </div>
+</form>
+
+    
+    </mat-tab>
+    
+  </mat-tab-group>

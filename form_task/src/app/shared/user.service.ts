@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { User } from './user';
@@ -10,30 +10,30 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
   add(userdata:object){
- this.http.post("http://localhost:3000/user", userdata).subscribe(res=>{
+ this.http.post("http://localhost:3000/employee/add", userdata, { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}).subscribe(res=>{
   console.log(res)
  })
     
   }
   getUsers(){
-    return this.http.get("http://localhost:3000/user")
+    return this.http.get("http://localhost:3000/employee" , { headers: new HttpHeaders({ 'Content-Type': 'application/json' })})
   }
-  delete(id:number){
-   return this.http.delete(`http://localhost:3000/user/${id}`)
+  delete(id:string){
+   return this.http.delete(`http://localhost:3000/employee/${id}` )
     
   }
-  getUser(id:number){
-    return this.http.get<User>(`http://localhost:3000/user/${id}`)
+  getUser(id:string){
+    return this.http.get<User>(`http://localhost:3000/employee/${id}` , { headers: new HttpHeaders({ 'Content-Type': 'application/json' })})
   }
-  updateUser(uesrdata:object,id:number){
-   return this.http.put(`http://localhost:3000/user/${id}`,uesrdata)
+  updateUser(uesrdata:object,id:string){
+   return this.http.put(`http://localhost:3000/employee/${id}`,uesrdata )
   
   }
  public userId=new BehaviorSubject('')
 
-  getId(id:string){
+  /*getId(id:string){
     this.userId.next(id)
   }
- recivedId=this.userId.asObservable()
+ recivedId=this.userId.asObservable()*/
 }
 

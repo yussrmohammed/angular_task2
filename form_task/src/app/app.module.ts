@@ -7,11 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material/material.module';
 import { FormComponent } from './form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {  HttpClientModule } from '@angular/common/http';
+import {  HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserService } from './shared/user.service';
 import { DataTableComponent } from './data-table/data-table.component';
 import { DeleteConfirmationComponent } from './data-table/delete-confirmation.component';
 import { EditComponent } from './form/edit/edit.component';
+import { LoginRegisterComponent } from './login-register/login-register.component';
+import { AuthInterceptor } from './shared/auth.interceptor';
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { EditComponent } from './form/edit/edit.component';
     FormComponent,
     DataTableComponent,
     DeleteConfirmationComponent,
-    EditComponent
+    EditComponent,
+    LoginRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,14 @@ import { EditComponent } from './form/edit/edit.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [UserService],
+  providers: [UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    } 
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

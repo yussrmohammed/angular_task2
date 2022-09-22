@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog  } from '@angular/material/dialog';
 import { UserService } from '../shared/user.service';
 import { DeleteConfirmationComponent } from './delete-confirmation.component';
 
@@ -16,7 +16,7 @@ userid:string=""
   usersData=[
    
   ]
-  displayedColumns = ["userName","email","phoneNumber","gender","address","actions"];
+  displayedColumns = ["employeename","email","phonenumber","gender","address","actions"];
   
   constructor(private userservice:UserService , public dialog: MatDialog ) {
     this.userservice.getUsers().subscribe((res:object|any)=>{
@@ -29,14 +29,17 @@ userid:string=""
   ngOnInit(): void {
   
   }
-  deleteUser(id:number){
-    const dialogRef = this.dialog.open(DeleteConfirmationComponent)
-   this.userid=String(id)
+  deleteUser(id:string){
+    const dialogRef = this.dialog.open(DeleteConfirmationComponent,
+     {data: {userId:id}})
+   /*this.userid=String(id)
    this.userservice.getId(this.userid)
-   console.log(this.userid)
+   console.log(this.userid)*/
+   
    dialogRef.afterClosed().subscribe(()=>{
     this.userservice.getUsers().subscribe((res:object|any)=>{
       this.usersData=res
+      
     })
    })
    

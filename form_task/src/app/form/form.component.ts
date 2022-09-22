@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { LoginService } from '../shared/login.service';
 import { UserService } from '../shared/user.service';
 
 
@@ -10,16 +11,16 @@ import { UserService } from '../shared/user.service';
 })
 export class FormComponent implements OnInit {
 userdata= new FormGroup({
-userName:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z].*')]),
+  employeename:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z].*')]),
   email: new FormControl('',[Validators.required,Validators.email]) ,
-  phoneNumber: new FormControl('',[Validators.maxLength(11),Validators.minLength(11),Validators.pattern("^[0-9]*$"),Validators.required]),
+  phonenumber: new FormControl('',[Validators.maxLength(11),Validators.minLength(11),Validators.pattern("^[0-9]*$"),Validators.required]),
   address: new FormControl('',[Validators.pattern('[a-zA-Z].*'), Validators.required]),
   gender: new FormControl('',Validators.required)
 
 
 })
 
-  constructor(private userservice:UserService) { }
+  constructor(private userservice:UserService, private authservice:LoginService) { }
 
   ngOnInit(): void {
   }
@@ -30,6 +31,9 @@ userName:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z].*'
     this.userdata.reset()
     window.location.reload()
   
+  }
+  logout(){
+    this.authservice.logout()
   }
 
 }
